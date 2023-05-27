@@ -1,4 +1,4 @@
-export async function getLodges(req, res) {
+export async function getTickets(req, res) {
   try {
     res.sendStatus(200);
   } catch (err) {

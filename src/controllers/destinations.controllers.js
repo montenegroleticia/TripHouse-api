@@ -1,6 +1,9 @@
+import { destinations } from "../repositories/destinations.repository.js";
+
 export async function getDestinations(req, res) {
   try {
-    res.sendStatus(200);
+    const destinationsList = await destinations();
+    res.status(200).send(destinationsList.rows);
   } catch (err) {
     res.status(500).send(err.message);
   }
