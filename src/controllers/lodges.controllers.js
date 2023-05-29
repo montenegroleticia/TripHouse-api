@@ -1,5 +1,6 @@
 import {
   lodges,
+  lodgesbyquery,
   lodgesbydestination,
   lodgesbyid,
 } from "../repositories/lodges.repository.js";
@@ -7,6 +8,16 @@ import {
 export async function getLodges(req, res) {
   try {
     const lodgesList = await lodges();
+    res.status(200).send(lodgesList.rows);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+}
+
+export async function getLodgesQuery(req, res) {
+  const { destinationValue, priceValue } = req.query;
+  try {
+    const lodgesList = await lodgesbyquery(destinationValue, priceValue);
     res.status(200).send(lodgesList.rows);
   } catch (err) {
     res.status(500).send(err.message);

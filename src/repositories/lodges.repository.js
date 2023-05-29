@@ -5,6 +5,22 @@ export async function lodges() {
   return result;
 }
 
+export async function lodgesbyquery(destinationValue, priceValue) {
+  if (priceValue === "menor-maior") {
+    const result = await db.query(
+      `SELECT * FROM lodges WHERE cityid = $1 ORDER BY PRICE ASC;`,
+      [destinationValue]
+    );
+    return result;
+  } else {
+    const result = await db.query(
+      `SELECT * FROM lodges WHERE cityid = $1 ORDER BY PRICE DESC;`,
+      [destinationValue]
+    );
+    return result;
+  }
+}
+
 export async function lodgesbydestination(cityid) {
   const result = await db.query(`SELECT * FROM lodges WHERE cityid = $1;`, [
     cityid,
