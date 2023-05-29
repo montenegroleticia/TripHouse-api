@@ -45,7 +45,7 @@ export async function postLodge(
   description
 ) {
   const result = await db.query(
-    `INSERT INTO tickets (cityid, name, address, site, image, price, amenities, room_image, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+    `INSERT INTO lodges (cityid, name, address, site, image, price, amenities, room_image, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
     [
       cityid,
       name,
