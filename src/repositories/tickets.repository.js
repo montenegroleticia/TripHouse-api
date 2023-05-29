@@ -25,3 +25,19 @@ export async function ticketsbyid(id) {
   const result = await db.query(`SELECT * FROM tickets WHERE id = $1;`, [id]);
   return result;
 }
+
+export async function postTticket(
+  destination,
+  origin,
+  airline,
+  departure,
+  landing,
+  price,
+  image
+) {
+  const result = await db.query(
+    `INSERT INTO tickets (destination, origin, airline, departure, landing, price, image) VALUES ($1, $2, $3 $4, $5, $6, $7)`,
+    [destination, origin, airline, departure, landing, price, image]
+  );
+  return result;
+}

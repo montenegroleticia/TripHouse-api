@@ -25,9 +25,9 @@ export async function getLodgesQuery(req, res) {
 }
 
 export async function getLodgesByDestination(req, res) {
-  const { cityid } = req.body;
+  const { id } = req.query;
   try {
-    const lodgesList = await lodgesbydestination(cityid);
+    const lodgesList = await lodgesbydestination(id);
     res.status(200).send(lodgesList.rows);
   } catch (err) {
     res.status(500).send(err.message);

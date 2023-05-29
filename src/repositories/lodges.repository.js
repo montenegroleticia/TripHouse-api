@@ -21,9 +21,9 @@ export async function lodgesbyquery(destinationValue, priceValue) {
   }
 }
 
-export async function lodgesbydestination(cityid) {
+export async function lodgesbydestination(id) {
   const result = await db.query(`SELECT * FROM lodges WHERE cityid = $1;`, [
-    cityid,
+    id,
   ]);
   return result;
 }
