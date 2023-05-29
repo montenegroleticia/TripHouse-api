@@ -26,7 +26,7 @@ export async function ticketsbyid(id) {
   return result;
 }
 
-export async function postTticket(
+export async function postTicket(
   destination,
   origin,
   airline,
@@ -36,7 +36,7 @@ export async function postTticket(
   image
 ) {
   const result = await db.query(
-    `INSERT INTO tickets (destination, origin, airline, departure, landing, price, image) VALUES ($1, $2, $3 $4, $5, $6, $7)`,
+    `INSERT INTO tickets (destination, origin, airline, departure, landing, price, image) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
     [destination, origin, airline, departure, landing, price, image]
   );
   return result;

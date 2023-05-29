@@ -32,3 +32,31 @@ export async function lodgesbyid(id) {
   const result = await db.query(`SELECT * FROM lodges WHERE id = $1;`, [id]);
   return result;
 }
+
+export async function postLodge(
+  cityid,
+  name,
+  address,
+  site,
+  image,
+  price,
+  amenities,
+  room_image,
+  description
+) {
+  const result = await db.query(
+    `INSERT INTO tickets (cityid, name, address, site, image, price, amenities, room_image, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+    [
+      cityid,
+      name,
+      address,
+      site,
+      image,
+      price,
+      amenities,
+      room_image,
+      description,
+    ]
+  );
+  return result;
+}

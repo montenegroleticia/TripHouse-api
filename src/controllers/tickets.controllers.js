@@ -1,4 +1,4 @@
-import { postTticket, tickets, ticketsbyquery } from "../repositories/tickets.repository.js";
+import { postTicket, tickets, ticketsbyquery } from "../repositories/tickets.repository.js";
 
 export async function getTickets(req, res) {
   try {
@@ -23,7 +23,7 @@ export async function postTickets(req, res) {
   const { destination, origin, airline, departure, landing, price, image } =
     req.body;
   try {
-    const ticketsList = await postTticket(
+    const ticketsList = await postTicket(
       destination,
       origin,
       airline,
