@@ -1,6 +1,6 @@
 Travel Agency ✈️ 
 
-A site called TripHouse with options for destinations, flights and hotels.
+Api from a site called TripHouse with options for destinations, flights and hotels.
 
 You can access the deployment through the link below:
     
